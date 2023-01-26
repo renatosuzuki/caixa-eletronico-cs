@@ -23,3 +23,5 @@ git@github.com:renatosuzuki/caixa-eletronico-cs.git
 ```
 dotnet run
 ```
+
+### Obs: Fiz outra função de saque, porém com listas deixando a resposta fora da lógica
