@@ -1,32 +1,32 @@
 using static System.Console;
 
 namespace TransData.TesteTecnico.Saque {
-   class FuncaoSaque {
-        public static void LogicaSaque() {
-            int valorSaque = -1;
+   class FuncoesSaque {
+        public static void LogicaPrincipalSaque() {
+            int ValorNotasSaque = -1;
 
-            string valorInput;
+            string ValorNotasInput;
 
             int[] notas = new int[6] {100, 50, 20, 10, 5, 2};
 
-            while (valorSaque < 0) {
-                WriteLine("Digite o valor do saque: ");
+            while (ValorNotasSaque < 0) {
+                WriteLine("Digite o ValorNotas do saque: ");
 
-                valorInput = ReadLine()!;
+                ValorNotasInput = ReadLine()!;
 
-                valorSaque = Convert.ToInt32(valorInput); 
+                ValorNotasSaque = Convert.ToInt32(ValorNotasInput); 
 
-                if (valorSaque < 0) {
-                    WriteLine("O valor deve ser maior que 0");
+                if (ValorNotasSaque < 0) {
+                    WriteLine("O ValorNotas deve ser maior que 0");
                 }
                 else {
                     for (int i = 0; i < notas.Length; i++) {
-                        int qtdNotas = valorSaque / notas[i];
+                        int qtdNotas = ValorNotasSaque / notas[i];
 
-                        valorSaque = valorSaque % notas[i];
+                        ValorNotasSaque = ValorNotasSaque % notas[i];
 
-                        if (valorSaque == 1 || valorSaque == 3) {
-                            valorSaque = valorSaque + 1;
+                        if (ValorNotasSaque == 1 || ValorNotasSaque == 3) {
+                            ValorNotasSaque = ValorNotasSaque + 1;
                         };
 
                         RespostaNotas RespostaNotas = new RespostaNotas(qtdNotas, notas[i]);
@@ -39,28 +39,28 @@ namespace TransData.TesteTecnico.Saque {
     }
 
     public class RespostaNotas {
-        private int _Quantidade;
+        private int _QuantidadeNotas;
 
-        private int _Valor;
+        private int _ValorNotas;
 
         private string? _Resposta;
 
-        public RespostaNotas (int Quantidade, int Valor) {
-            _Quantidade = Quantidade;
-            _Valor = Valor;
+        public RespostaNotas (int QuantidadeNotas, int ValorNotas) {
+            _QuantidadeNotas = QuantidadeNotas;
+            _ValorNotas = ValorNotas;
         }
 
         public string Resposta {
             get {
-                if (_Quantidade == 0) {
+                if (_QuantidadeNotas == 0) {
                     return "";
                 }
-                
-                else if (_Quantidade == 1) {
-                    return $"{_Quantidade} nota de R$ {_Valor},00";
+
+                else if (_QuantidadeNotas == 1) {
+                    return $"{_QuantidadeNotas} nota de R$ {_ValorNotas},00";
                 }
 
-                return $"{_Quantidade} notas de R$ {_Valor},00";
+                return $"{_QuantidadeNotas} notas de R$ {_ValorNotas},00";
             } 
             set {
                 _Resposta = value;
